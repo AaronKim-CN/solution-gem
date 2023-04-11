@@ -1,0 +1,9 @@
+{
+    product_id: 1000001,
+    id: "SKU1000001",
+    title: "First Product",
+    description: "This is the first product",
+    manufacturer: "Sony",
+    price: 1000,
+    image: "wwwww"
+}

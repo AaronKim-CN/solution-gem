@@ -1,0 +1,29 @@
+{
+  "name": "Cart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js shopping cart",
+  "author": "Gabriele Romanato <gabriele@gabrieleromanato.com>",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.306.0",
+    "aws-sdk": "^2.1351.0",
+    "body-parser": "^1.13.2",
+    "connect-mongodb-session": "^3.1.1",
+    "dotenv": "^16.0.3",
+    "dynamoose": "^3.1.0",
+    "ejs": "^3.1.8",
+    "express": "^4.13.1",
+    "express-session": "^1.15.2",
+    "helmet": "^6.0.1",
+    "mongoose": "^6.8.3",
+    "serve-favicon": "^2.4.2"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "request": "^2.81.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
