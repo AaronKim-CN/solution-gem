@@ -57,7 +57,11 @@ app.use('/public', express.static(path.join(__dirname, '/public'), {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(helmet());
+//app.use(helmet());
+//Use the following code for HTTP connection
+app.use(helmet({
+    contentSecurityPolicy: { directives: cspDefaults }
+}));
 app.use(session({
     secret: config.secret,
     resave: false,
