@@ -17,6 +17,7 @@ require('dotenv').config()
 var indexRouter = require('./routes/index');
 var cartRouter = require('./routes/cart');
 var checkoutRouter = require('./routes/checkout');
+var internationalCheckoutRouter = require('./routes/internationalcheckout');
 var GetCheckoutCartInfoRouter = require('./routes/GetCheckoutCartInfo');
 
 
@@ -77,6 +78,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/internationalcheckout', internationalCheckoutRouter);
 app.use('/GetCheckoutCartInfo', GetCheckoutCartInfoRouter);
 
 
