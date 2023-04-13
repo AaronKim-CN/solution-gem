@@ -19,6 +19,9 @@ var cartRouter = require('./routes/cart');
 var checkoutRouter = require('./routes/checkout');
 var internationalCheckoutRouter = require('./routes/internationalcheckout');
 var GetCheckoutCartInfoRouter = require('./routes/GetCheckoutCartInfo');
+var SendOrderToMerchantRouter = require('./routes/SendOrderToMerchant');
+var PerformOrderPaymentRouter = require('./routes/PerformOrderPayment');
+var UpdateOrderStatusRouter = require('./routes/UpdateOrderStatus');
 
 
 // Create new DynamoDB instance
@@ -80,6 +83,9 @@ app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/internationalcheckout', internationalCheckoutRouter);
 app.use('/GetCheckoutCartInfo', GetCheckoutCartInfoRouter);
+app.use('/SendOrderToMerchant', SendOrderToMerchantRouter);
+app.use('/PerformOrderPayment',PerformOrderPaymentRouter);
+app.use('/UpdateOrderStatus', UpdateOrderStatusRouter);
 
 
 if (app.get('env') === 'development') {

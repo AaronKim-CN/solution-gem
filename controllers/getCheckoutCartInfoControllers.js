@@ -37,11 +37,20 @@ module.exports = {
           return
         }
         console.log("cart token")
-        console.log(cart)
+        //console.log(cart)
         // Create Response
         let productList = []
         let p1 = new Product("1001", "Super Shoes", "", "Super Shoes ABC", "")
         let p2 = new Product("1002", "Super Shirt", "", "Super Shirt ABC", "")
+
+        p1.setCartItemId("SKU001")
+        p1.setOrderedQuantity(3)
+        p1.setOriginalListPrice(130)
+
+        p2.setCartItemId("SKU002")
+        p2.setOrderedQuantity(1)
+        p2.setOriginalListPrice(130)
+
         productList.push(p1)
         productList.push(p2)
       
