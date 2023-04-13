@@ -22,14 +22,14 @@ module.exports = {
             return
           }
           
-          // Check Country Code
-          if(req.query.countryCode){
-            console.log("CountryCode OK")
-          }else{
-            let error = new ErrorInfo('101', 'No CountryCode', 'No CountryCode')
-            res.send(error)
-            return
-          }
+        //   // Check Country Code
+        //   if(req.query.countryCode){
+        //     console.log("CountryCode OK")
+        //   }else{
+        //     let error = new ErrorInfo('101', 'No CountryCode', 'No CountryCode')
+        //     res.send(error)
+        //     return
+        //   }
       
         }else{
           let error = new ErrorInfo('100', 'No Required Parameters', 'No Required Parameters')
