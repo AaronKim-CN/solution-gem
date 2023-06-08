@@ -47,6 +47,16 @@ module.exports = {
         p1.setOrderedQuantity(3)
         p1.setOriginalListPrice(130)
 
+        let productmeta1 = {}
+        productmeta1["Attributes"] = []
+        let Attribute1 = {
+          "AttributeKey": "product_attributeKey",
+          "AttributeValue": "product_attributevalue"
+        }
+        productmeta1["Attributes"].push(Attribute1)
+
+        p1.setMetaData(productmeta1)
+
         p2.setCartItemId("SKU002")
         p2.setOrderedQuantity(1)
         p2.setOriginalListPrice(130)
