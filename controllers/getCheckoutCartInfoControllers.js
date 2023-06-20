@@ -41,7 +41,7 @@ module.exports = {
         // Create Response
         let productList = []
         let p1 = new Product("1001", "Super Shoes", "", "Super Shoes ABC", "")
-        let p2 = new Product("1002", "Super Shirt", "", "Super Shirt ABC", "")
+        let p2 = new Product("1001", "Super Shirt", "", "Super Shirt ABC", "")
 
         p1.setCartItemId("SKU001")
         p1.setOrderedQuantity(3)
