@@ -41,11 +41,12 @@ module.exports = {
         // Create Response
         let productList = []
         let p1 = new Product("1001", "Super Shoes", "", "Super Shoes ABC", "")
-        let p2 = new Product("1001", "Super Shirt", "", "Super Shirt ABC", "")
+        let p2 = new Product("1002", "Super Shirt", "", "Super Shirt ABC", "")
 
         p1.setCartItemId("SKU001")
         p1.setOrderedQuantity(3)
         p1.setOriginalListPrice(130)
+        p1.setProductCodeSecondary("secondCode_1001")
 
         let productmeta1 = {}
         productmeta1["Attributes"] = []
@@ -60,6 +61,7 @@ module.exports = {
         p2.setCartItemId("SKU002")
         p2.setOrderedQuantity(1)
         p2.setOriginalListPrice(130)
+        p2.setProductCodeSecondary("secondCode_1002")
 
         productList.push(p1)
         productList.push(p2)
