@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt/solution-gem
+    destination: /opt/solution-gem2
     overwrite: true
 hooks:
   AfterInstall:
