@@ -11,6 +11,8 @@ const favicon = require('serve-favicon');
 const session = require('express-session');
 const app = express();
 const config = require('./lib/config.js');
+const cookieParser = require('cookie-parser');
+const cartTokenMiddleware = require('./lib/cartToken'); 
 
 require('dotenv').config()
 
@@ -72,11 +74,16 @@ app.use(session({
     saveUninitialized: true,
     unset: 'destroy',
     //store: store,
-    name: config.name + '-' + Security.generateId(),
+    //name: config.name + '-' + Security.generateId(),
+    name: config.name,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // Optional: persist 30 days
     genid: (req) => {
-        return Security.generateId()
+        return req.sessionID || Security.generateId()
     }
 }));
+
+app.use(cookieParser());
+app.use(cartTokenMiddleware); // 👈 Use cart token middleware globally
 
 app.use('/', indexRouter);
 app.use('/cart', cartRouter);

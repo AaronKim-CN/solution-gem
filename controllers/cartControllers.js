@@ -9,10 +9,11 @@ module.exports = {
     
     getCart: function(req, res, next) {
         let sess = req.session;
-        let cart = (typeof sess.cart !== 'undefined') ? sess.cart : false;
+        let token = req.cookies?.GlobalE_Cart_Token;
+        let cart = Cart.getCart(token);
 
         // Set Cart Token
-        res.cookie('GlobalE_Cart_Token', "1234567890")
+//        res.cookie('GlobalE_Cart_Token', "1234567890")
 
         res.render('cart', {
             pageTitle: 'Cart',
@@ -30,7 +31,7 @@ module.exports = {
             Products.scan("product_id").contains(product).exec((error, prod) => {
     
                 var formatedProduct = {}
-    
+
                 prod.forEach( (p) => {
     
                     formatedProduct['manufacturer'] = p.manufacturer
@@ -43,8 +44,10 @@ module.exports = {
     
                 });
     
-                let cart = (req.session.cart) ? req.session.cart : null;
-                Cart.addToCart(formatedProduct, qty, cart);
+                //let cart = (req.session.cart) ? req.session.cart : null;
+                let token = req.cookies?.GlobalE_Cart_Token;
+
+                Cart.addToCart(formatedProduct, qty, token);
                 res.redirect('/cart');
             })
     
@@ -67,7 +70,8 @@ module.exports = {
     emptyCart: function(req, res, next) {
 
         if(Security.isValidNonce(req.params.nonce, req)) {
-            Cart.emptyCart(req);
+            let token = req.cookies?.GlobalE_Cart_Token;
+            Cart.emptyCart(token);
             res.redirect('/cart');
         } else {
             res.redirect('/');

@@ -8,7 +8,8 @@ module.exports = {
 
     getCheckout: function(req, res, next) {
         let sess = req.session;
-        let cart = (typeof sess.cart !== 'undefined') ? sess.cart : false;
+        let token = req.cookies?.GlobalE_Cart_Token;
+        let cart = Cart.getCart(token);
 
         res.render('checkout', {
             pageTitle: 'Checkout',
@@ -20,7 +21,8 @@ module.exports = {
     postCheckout: function(req, res, next) {
 
         let sess = req.session;
-        let cart = (typeof sess.cart !== 'undefined') ? sess.cart : false;
+        let token = req.cookies?.GlobalE_Cart_Token;
+        let cart = Cart.getCart(token);
         
         if(Security.isValidNonce(req.body.nonce, req)) {
             res.render('checkout', {

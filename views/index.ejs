@@ -14,7 +14,7 @@
                 <div class="cart-data">
                     <form action="/cart" method="post">
                         <div>
-                            <span data-ge-price class="price">
+                            <span data-ge-price data-fp='<%= JSON.stringify({ US: 100 }) %>' class="price">
                                 ￥<%= product.price %>
                             </span>
 
