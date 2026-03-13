@@ -66,7 +66,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(helmet());
 //Use the following code for HTTP connection
 app.use(helmet({
-    contentSecurityPolicy:false
+    contentSecurityPolicy:false,
+    crossOriginEmbedderPolicy: false,  // Disable COEP
+    crossOriginOpenerPolicy: false     // Optional: also disable COOP if not needed
 }));
 app.use(session({
     secret: config.secret,
